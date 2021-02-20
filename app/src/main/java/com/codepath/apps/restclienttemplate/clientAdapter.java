@@ -1,7 +1,6 @@
 package com.codepath.apps.restclienttemplate;
 
 import android.content.Context;
-import android.media.Image;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -64,17 +63,23 @@ public class clientAdapter extends RecyclerView.Adapter<clientAdapter.ViewHolder
         ImageView profileImage;
         TextView twitterName;
         TextView tweetText;
+        TextView twitterHandle;
+        TextView twitterTime;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             profileImage = itemView.findViewById(R.id.profileImage);
             twitterName = itemView.findViewById(R.id.twitterName);
             tweetText = itemView.findViewById(R.id.tweetText);
+            twitterHandle = itemView.findViewById(R.id.twitterHandle);
+            twitterTime = itemView.findViewById(R.id.twitterTime);
         }
 
         public void bind(Tweet tweet){
             tweetText.setText(tweet.body);
-            twitterName.setText(tweet.user.screenName);
+            twitterName.setText(tweet.user.name);
+            twitterHandle.setText("@"+tweet.user.screenName);
+            twitterTime.setText(tweet.timeStamp + " ago");
             Glide.with(context).load(tweet.user.profileImageUrl).into(profileImage);
             Log.d("onFill", "data filled" + tweetText);
         }
