@@ -38,10 +38,11 @@ public class twitterHome extends AppCompatActivity {
         setContentView(R.layout.activity_twitter_home);
          client = twitterApp.getRestClient(this);
 
-         //code for actionbar to add icon to header
-         //ActionBar actionBar = getSupportActionBar();
-         //actionBar.setDisplayHomeAsUpEnabled(true);
-         //actionBar.setIcon(R.drawable.ic_launcher);
+         //set title as well as add an icon to the action bar
+         setTitle("twitterAppClient");
+         ActionBar actionBar = getSupportActionBar();
+         actionBar.setDisplayShowHomeEnabled(true);
+         actionBar.setIcon(R.drawable.ic_launcher);
 
          swipeContainer = findViewById(R.id.swipeContainer);
         // Scheme colors for animation
