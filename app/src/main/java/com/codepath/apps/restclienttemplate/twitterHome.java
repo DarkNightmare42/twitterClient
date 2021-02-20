@@ -1,5 +1,6 @@
 package com.codepath.apps.restclienttemplate;
 
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -36,6 +37,11 @@ public class twitterHome extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_twitter_home);
          client = twitterApp.getRestClient(this);
+
+         //code for actionbar to add icon to header
+         //ActionBar actionBar = getSupportActionBar();
+         //actionBar.setDisplayHomeAsUpEnabled(true);
+         //actionBar.setIcon(R.drawable.ic_launcher);
 
          swipeContainer = findViewById(R.id.swipeContainer);
         // Scheme colors for animation
