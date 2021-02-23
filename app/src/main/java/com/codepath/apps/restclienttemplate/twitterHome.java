@@ -2,6 +2,7 @@ package com.codepath.apps.restclienttemplate;
 
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
@@ -39,12 +40,13 @@ public class twitterHome extends AppCompatActivity {
          client = twitterApp.getRestClient(this);
 
          //set title as well as add an icon to the action bar
-         setTitle("twitterAppClient");
+         setTitle(" twitter");
          ActionBar actionBar = getSupportActionBar();
          actionBar.setDisplayShowHomeEnabled(true);
          actionBar.setIcon(R.drawable.ic_launcher);
 
-         swipeContainer = findViewById(R.id.swipeContainer);
+
+        swipeContainer = findViewById(R.id.swipeContainer);
         // Scheme colors for animation
         swipeContainer.setColorSchemeColors(
                 getResources().getColor(android.R.color.holo_blue_bright),
@@ -67,6 +69,11 @@ public class twitterHome extends AppCompatActivity {
          LinearLayoutManager layoutManager = new LinearLayoutManager(this);
          viewTweets.setLayoutManager(layoutManager);
          viewTweets.setAdapter(clientAdapter);
+
+         //divider
+        DividerItemDecoration itemDecoration = new DividerItemDecoration(this, layoutManager.getOrientation());
+        viewTweets.addItemDecoration(itemDecoration);
+
          scrollListener = new EndlessRecyclerViewScrollListener(layoutManager) {
              @Override
              public void onLoadMore(int page, int totalItemsCount, RecyclerView view) {
