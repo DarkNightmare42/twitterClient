@@ -79,7 +79,7 @@ public class clientAdapter extends RecyclerView.Adapter<clientAdapter.ViewHolder
             tweetText.setText(tweet.body);
             twitterName.setText(tweet.user.name);
             twitterHandle.setText("@"+tweet.user.screenName);
-            twitterTime.setText("~" + tweet.timeStamp + " ago");
+            twitterTime.setText("~" + tweet.timeStamp);
             Glide.with(context).load(tweet.user.profileImageUrl).into(profileImage);
             Log.d("onFill", "data filled");
         }
